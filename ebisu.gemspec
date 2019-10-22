@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ebisu/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "ebisu"
+  spec.name          = "ebisu-rb"
   spec.version       = Ebisu::VERSION
   spec.authors       = ["totem3"]
   spec.email         = ["ganzheit.com@gmail.com"]
