@@ -1,9 +1,13 @@
 module Ebisu
   class Store
+    # @!attribute id
+    #   @return [String]
+    attr_reader :id
+
     # @!attribute name
     #   @return [String]
     attr_reader :name
-    
+
     # @!attribute payment
     #   @return [Ebisu::Payment]
     attr_reader :payment
@@ -16,6 +20,7 @@ module Ebisu
     #   @return [Ebisu::StoreRatings]
     attr_reader :ratings
     def initialize(data)
+      @id = data.dig('Id')
       @name = data.dig('Name')
       @payment = Ebisu::Payment.new(data.dig('Payment'))
       @is_best_store = data.dig('IsBestStore') == 'true'
