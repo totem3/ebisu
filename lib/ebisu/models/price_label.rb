@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class PriceLabel
     # @!attribute is_inclusive
@@ -44,4 +46,3 @@ module Ebisu
     end
   end
 end
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Brands
     # @!attribute name
@@ -13,5 +15,3 @@ module Ebisu
     end
   end
 end
-
-

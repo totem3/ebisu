@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Shipping
     # @!attribute code
@@ -14,4 +16,3 @@ module Ebisu
     end
   end
 end
-

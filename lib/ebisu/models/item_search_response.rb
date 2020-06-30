@@ -66,8 +66,3 @@ module Ebisu
         [].map{|hit| Ebisu::Item.new(hit)}
       end
     end
-
-  end
-
-end
-

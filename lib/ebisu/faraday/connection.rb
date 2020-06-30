@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   module Faraday
     module Connection
@@ -5,7 +7,7 @@ module Ebisu
 
       def connection
         options = {
-            headers: { 'Accept' => 'application/xml' }
+          headers: { 'Accept' => 'application/xml,application/json' }
         }
 
         options[:headers]['User-Agent'] = user_agent if user_agent

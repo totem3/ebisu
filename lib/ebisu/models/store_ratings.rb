@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class StoreRatings
     # @!attribute rate
@@ -13,4 +15,3 @@ module Ebisu
     end
   end
 end
-

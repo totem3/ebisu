@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Point
     # @!attribute amount
@@ -20,5 +22,4 @@ module Ebisu
       @premium_times = point.dig('PremiumTimes').to_i
     end
   end
-
 end

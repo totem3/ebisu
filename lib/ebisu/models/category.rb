@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class YCategory
     IDAndName = Struct.new(:id, :name)
@@ -33,4 +35,3 @@ module Ebisu
     end
   end
 end
-

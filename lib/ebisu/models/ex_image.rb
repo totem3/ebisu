@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class ExImage
     # @!attribute url
@@ -21,4 +23,3 @@ module Ebisu
     end
   end
 end
-

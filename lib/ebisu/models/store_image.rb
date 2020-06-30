@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class StoreImage
     # @!attribute id
@@ -13,4 +15,3 @@ module Ebisu
     end
   end
 end
-

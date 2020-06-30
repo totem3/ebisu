@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ebisu/models/item_search_response'
 module Ebisu
   module Apis
