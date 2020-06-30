@@ -29,7 +29,7 @@ module Ebisu
     end
 
     def result_set
-      @original_response['ResultSet']
+      @original_response
     end
 
     # @return [Integer] 検索総HIT数
@@ -49,20 +49,7 @@ module Ebisu
 
     # @return [Array<Ebisu::Item>] 検索結果のアイテムのリスト
     def hits
-      result_hit = result_set['Result']['Hit']
-      case result_hit
-      when Array
-        result_hit.map{|hit| Ebisu::Item.new(hit)}
-      when Hash
-        # 結果がないとき
-        if result_hit['index'].to_i == 0
-          [].map{|hit| Ebisu::Item.new(hit)}
-
-        # 結果が1件だけのとき
-        else
-          [result_hit].map{|hit| Ebisu::Item.new(hit)}
-        end
-      when NilClass
-        [].map{|hit| Ebisu::Item.new(hit)}
-      end
+      (result_set['hits'] || []).map { |hit| Ebisu::Item.new(hit) }
     end
+  end
+end

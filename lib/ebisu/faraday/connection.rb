@@ -21,7 +21,8 @@ module Ebisu
         ::Faraday::Connection.new(endpoint, options) do |connection|
           connection.use ::Faraday::Request::UrlEncoded
           connection.use ::Faraday::Response::RaiseError
-          connection.use ::FaradayMiddleware::ParseXml
+          connection.response :xml,  content_type: /\bxml$/
+          connection.response :json, content_type: /\bjson$/
           require 'logger'
           connection.response :logger, logger if logger
           connection.adapter ::Faraday.default_adapter

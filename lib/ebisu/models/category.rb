@@ -9,8 +9,8 @@ module Ebisu
     attr_reader :current
     def initialize(category)
       @current = IDAndName.new(
-          category.dig('Current', 'Id'),
-          category.dig('Current', 'Name')
+        category.dig('id'),
+        category.dig('name')
       )
     end
   end

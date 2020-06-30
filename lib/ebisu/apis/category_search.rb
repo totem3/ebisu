@@ -12,7 +12,7 @@ module Ebisu
       # @option options [String] :callback JSONPの場合のコールバック
       def category_search(category_id, options = {})
         options.merge!(category_id: category_id)
-        Ebisu::CategorySearchResponse.new get('categorySearch', options)
+        Ebisu::CategorySearchResponse.new get('V1/categorySearch', options)
       end
     end
   end

@@ -5,7 +5,6 @@ module Ebisu
     extend self
 
     ATTRIBUTES = %i[
-      api_version
       user_agent
       endpoint
       appid
@@ -20,8 +19,7 @@ module Ebisu
     end
 
     def reset
-      self.api_version = 'V1'
-      self.endpoint = "https://shopping.yahooapis.jp/ShoppingWebService/#{api_version}/"
+      self.endpoint = 'https://shopping.yahooapis.jp/ShoppingWebService/'
       self.user_agent = "YahooShopping Ruby Client/#{Ebisu::VERSION}"
       self.appid = nil
       self.proxy = nil

@@ -35,14 +35,12 @@ module Ebisu
     attr_reader :period_end
 
     def initialize(price_label)
-      @is_inclusive = price_label['taxIncluded'] == 'true'
-      @fixed_price = price_label['FixedPrice']
-      @default_price = price_label['DefaultPrice']
-      @sale_price = price_label['SalePrice']
-      @base_fixed_price = price_label['BaseFixedPrice']
-      @base_sale_price = price_label['BaseSalePrice']
-      @period_start = price_label['PeriodStart']
-      @period_end = price_label['PeriodEnd']
+      @is_inclusive = price_label['taxable']
+      @fixed_price = price_label['fixedPrice']
+      @default_price = price_label['defaultPrice']
+      @sale_price = price_label['salePrice']
+      @period_start = price_label['periodStart']
+      @period_end = price_label['periodEnd']
     end
   end
 end
