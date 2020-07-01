@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Shipping
     # @!attribute code
@@ -9,9 +11,8 @@ module Ebisu
     attr_reader :name
 
     def initialize(shipping)
-      @code = shipping.dig('Code')
-      @name = shipping.dig('Name')
+      @code = shipping.dig('code')
+      @name = shipping.dig('name')
     end
   end
 end
-

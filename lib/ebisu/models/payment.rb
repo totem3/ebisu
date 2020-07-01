@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Payment
     # @!attribute method
@@ -15,4 +17,3 @@ module Ebisu
     end
   end
 end
-

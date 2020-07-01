@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class StoreRatings
     # @!attribute rate
@@ -8,9 +10,8 @@ module Ebisu
     #   @return [Integer]
     attr_reader :count
     def initialize(data)
-      @rate = data.dig('Rate').to_f
-      @count = data.dig('Count').to_i
+      @rate = data.dig('rate').to_f
+      @count = data.dig('reviewCount').to_i
     end
   end
 end
-

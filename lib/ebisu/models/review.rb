@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Review
     # @!attribute rate
@@ -18,5 +20,4 @@ module Ebisu
       @url = review.dig('Url')
     end
   end
-
 end

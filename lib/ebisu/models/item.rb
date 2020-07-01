@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Item
     # @!attribute name
@@ -23,14 +25,6 @@ module Ebisu
     # @!attribute code
     #   @return [String]
     attr_reader :code
-
-    # @!attribute person_id
-    #   @return [String]
-    attr_reader :person_id
-
-    # @!attribute product_id
-    #   @return [String]
-    attr_reader :product_id
 
     # @!attribute image
     #   @return [Ebisu::Image]
@@ -92,16 +86,13 @@ module Ebisu
     #   @return [Ebisu::Store]
     attr_reader :store
 
+    # @!attribute affiliate_rate
+    #   @return [Float]
+    attr_reader :affiliate_rate
+
     class Availability
-      def initialize(v)
-        case v
-        when 'instock'
-          @available = true
-        when 'outofstock'
-          @available = false
-        else
-          @available = false
-        end
+      def initialize(in_stock)
+        @available = in_stock
       end
 
       # @return [True|False]
@@ -110,30 +101,30 @@ module Ebisu
       end
     end
 
+    # @param [Hash] hit
     def initialize(hit)
-      @name = hit.dig('Name')
-      @description = hit.dig('Description')
-      @headline = hit.dig('Headline')
-      @url = hit.dig('Url')
-      @availability = Availability.new(hit.dig('Availability'))
-      @code = hit.dig('Code')
-      @person_id = hit.dig('PersonId')
-      @product_id = hit.dig('ProductId')
-      @price = Ebisu::Price.new(hit.dig('Price'))
-      @price_label = Ebisu::PriceLabel.new(hit.dig('PriceLabel'))
-      @jan_code = hit.dig('JanCode')
-      @model = hit.dig('Model')
-      @isbn_code = hit.dig('IsbnCode')
-      @release_date = hit.dig('ReleaseDate')
-      @image = Ebisu::Image.new(hit.dig('Image'))
-      @ex_image = Ebisu::ExImage.new(hit.dig('ExImage'))
-      @review = Ebisu::Review.new(hit.dig('Review'))
-      @point = Ebisu::Point.new(hit.dig('Point'))
-      @shipping = Ebisu::Shipping.new(hit.dig('Shipping'))
-      @category = Ebisu::YCategory.new(hit.dig('Category'))
-      @category_id_path = Ebisu::CategoryIdPath.new(hit.dig('CategoryIdPath'))
-      @brands = Ebisu::Brands.new(hit.dig('Brands'))
-      @store = Ebisu::Store.new(hit.dig('Store'))
+      @name = hit.dig('name')
+      @description = hit.dig('description')
+      @headline = hit.dig('headLine')
+      @url = hit.dig('url')
+      @availability = Availability.new(hit.dig('inStock'))
+      @code = hit.dig('code')
+      @price = Ebisu::Price.new(hit.dig('price'))
+      @price_label = Ebisu::PriceLabel.new(hit.dig('priceLabel'))
+      @jan_code = hit.dig('janCode')
+      @model = hit.dig('model')
+      @isbn_code = hit.dig('isbnCode')
+      @release_date = hit.dig('releaseDate')
+      @image = Ebisu::Image.new(hit.dig('imageId'), hit.dig('image'))
+      @ex_image = Ebisu::ExImage.new(hit.dig('exImage')) if hit.dig('exImage')
+      @review = Ebisu::Review.new(hit.dig('review'))
+      @affiliate_rate = hit.dig('affiliateRate')
+      @point = Ebisu::Point.new(hit.dig('point'))
+      @shipping = Ebisu::Shipping.new(hit.dig('shipping'))
+      @category = Ebisu::YCategory.new(hit.dig('genreCategory'))
+      @category_id_path = Ebisu::CategoryIdPath.new(hit.dig('parentGenreCategories'))
+      @brands = Ebisu::Brands.new(hit.dig('brand'))
+      @store = Ebisu::Store.new(hit.dig('seller'))
     end
   end
 end

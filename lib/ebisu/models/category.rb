@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class YCategory
     IDAndName = Struct.new(:id, :name)
@@ -7,8 +9,8 @@ module Ebisu
     attr_reader :current
     def initialize(category)
       @current = IDAndName.new(
-          category.dig('Current', 'Id'),
-          category.dig('Current', 'Name')
+        category.dig('id'),
+        category.dig('name')
       )
     end
   end
@@ -33,4 +35,3 @@ module Ebisu
     end
   end
 end
-

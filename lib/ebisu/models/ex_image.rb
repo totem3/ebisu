@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class ExImage
     # @!attribute url
@@ -15,10 +17,9 @@ module Ebisu
     def initialize(image)
       return unless image
 
-      @url = image.dig('Url')
-      @width = image.dig('Width')
-      @height = image.dig('Height')
+      @url = image.dig('url')
+      @width = image.dig('width')
+      @height = image.dig('height')
     end
   end
 end
-

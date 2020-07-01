@@ -19,13 +19,21 @@ module Ebisu
     # @!attribute ratings
     #   @return [Ebisu::StoreRatings]
     attr_reader :ratings
+
+    # @!attribute image_id
+    #   @return [String]
+    attr_reader :image_id
+
+    # @!attribute ratings
+    #   @return [Ebisu::StoreRatings]
+    attr_reader :ratings
     def initialize(data)
-      @id = data.dig('Id')
-      @name = data.dig('Name')
-      @payment = Ebisu::Payment.new(data.dig('Payment'))
-      @is_best_store = data.dig('IsBestStore') == 'true'
-      @ratings = Ebisu::StoreRatings.new(data.dig('Ratings'))
-      @image = Ebisu::StoreImage.new(data.dig('Image'))
+      @id = data.dig('sellerId')
+      @name = data.dig('name')
+      @payment = Ebisu::Payment.new(data.dig('payment'))
+      @is_best_store = data.dig('isBestSeller')
+      @ratings = Ebisu::StoreRatings.new(data.dig('review'))
+      @image_id = data.dig('imageId')
     end
   end
 end

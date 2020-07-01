@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 module Ebisu
   class CategoryIdPath
     # @!attribute path
     #   @return [Array[String]]
     attr_reader :path
     def initialize(data)
-      category = data['Category']
-      @path = case category
+      @path = case data
               when Array
-                category.map { |x| x['Id'] }
+                data.map { |x| x['id'] }
               else
                 []
               end

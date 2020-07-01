@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ebisu
   class Price
     # @!attribute value
