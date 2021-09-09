@@ -25,16 +25,6 @@ module Ebisu
       # @option options [Boolean] :in_stock
       # @option options [Boolean] :is_discounted
       # @option options [String] :shipping (free/conditional_free)
-      # @option options [String] :payment
-      #   ウォレット対応カード：yahoowallet
-      #   クレジットカード：creditcard
-      #   商品代引：cod
-      #   銀行振込：banktransfer
-      #   郵便振替：pmo
-      #   モバイルSuica：mobilesuica
-      #   ペイジー：payeasy
-      #   Yahoo!マネー/預金払い：yahoomoney
-      #   コンビニ：convenience
       # @option options [String] :user_rank diamond/platinum/gold/silver/bronze/guest
       # @option options [Integer] :sale_end_from
       # @option options [Integer] :sale_end_to
